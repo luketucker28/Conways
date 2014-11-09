@@ -102,10 +102,18 @@ document.addEventListener('DOMContentLoaded', function(){
 
     }
 
-  document.querySelector("#tick").addEventListener('click', function(){
-    // Tick button has been pressed
-    matrix = calculateNextState(matrix);
-    generateGrid(matrix);
+function multipleIterate () {
+  matrix = calculateNextState(matrix);
+  generateGrid(matrix);
+}
 
+  document.querySelector("#start").addEventListener('click', function(){
+    // Tick button has been pressed
+      var mySetUp=setInterval(function () {multipleIterate()}, 250);
+  //  matrix = calculateNextjState(matrix);
+  //  generateGrid(matrix);
+document.querySelector("#stop").addEventListener('click', function(){
+     clearInterval(mySetUp);
+    });
   });
 });
